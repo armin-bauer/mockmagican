@@ -22,7 +22,7 @@ How far is it?
 
 Okay, I'm just at the beginning. Since I have a current need for a project, I'll probably create stuff in this order:
 
- * Create mocks from interfaces
+ * Create mocks from interfaces	(DONE)
  * mock static methods
  * Create stubs
  * Create mocks from classes
