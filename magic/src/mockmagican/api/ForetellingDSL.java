@@ -8,8 +8,8 @@ import mockmagican.MockWizardUtil;
 * @author armin
 */
 class ForetellingDSL implements ForetellingSentenceBegins, ForetellingDSLCalledHowOften, ForetellingDSLReturnValue {
-  private final MockObject mockObject;
   private GlassBall call;
+  private final MockObject mockObject;
 
   ForetellingDSL(final MockObject mockObject) {
     this.mockObject = mockObject;
@@ -22,6 +22,8 @@ class ForetellingDSL implements ForetellingSentenceBegins, ForetellingDSLCalledH
 
       r.run();
       this.call = MockWizardUtil.lastRecordedCall();
+
+      assert call.getMockObject() == mockObject;
 
       return this;
     } finally {
