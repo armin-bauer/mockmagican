@@ -1,5 +1,12 @@
 package mockmagican.api;
 
+import mockmagican.MockObject;
+import mockmagican.MockWizardThreadContext;
+import mockmagican.MockWizardUtil;
+import mockmagican.interfaces.MockWizardInterfaceInvocationHandler;
+
+import java.lang.reflect.Proxy;
+
 /**
  * The control class for everything in the mocking framework.
  *
@@ -30,8 +37,15 @@ public class MockWizard {
    * @param interfaceClass the interface or abstract class or concrete class to create a mock from
    * @return a mock implementation / proxy of the given interface or class.
    */
+  @SuppressWarnings("unchecked")
   public static <T> T conjuresUpA(final Class<T> interfaceClass) {
-    return null;
+    final MockWizardThreadContext context = MockWizardUtil.current();
+
+    final T proxy = (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(),
+                                                new Class[] { interfaceClass, MockObject.class },
+                                                new MockWizardInterfaceInvocationHandler(interfaceClass, context));
+    context.addMock((MockObject) proxy);
+    return proxy;
   }
 
   /**

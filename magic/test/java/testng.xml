@@ -6,4 +6,11 @@
       <class name="mockmagican.IntegrationTest_MockInterfaces" />
     </classes>
   </test>
+
+  <test name="Unit tests for the internal API">
+    <classes>
+      <class name="mockmagican.MockWizardTest" />
+      <class name="mockmagican.interfaces.MockWizardInterfaceInvocationHandlerTest" />
+    </classes>
+  </test>
 </suite>
