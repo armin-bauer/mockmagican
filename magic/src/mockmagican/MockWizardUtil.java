@@ -50,4 +50,10 @@ public class MockWizardUtil {
   public static void createNewContext() {
     context.set(new MockWizardThreadContext());
   }
+
+  public static void releaseContext() {
+    assert context.get() != null;
+
+    context.remove();
+  }
 }

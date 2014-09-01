@@ -20,6 +20,20 @@ public class MockWizardTest {
     assertThat(MockWizardUtil.current().getMocks()).describedAs("mocks created for this object").hasSize(1).containsOnly(result);
   }
 
+  @Test
+  public void entersTheStage_createsNewContext() throws Exception {
+    try {
+      // fixture: not needed
+
+      // execution: call entersTheStage
+      MockWizard.entersTheStage();
+
+      // assertion: should have initialised a context.
+      assertThat(MockWizardUtil.current()).isNotNull();
+    } finally {
+      MockWizardUtil.releaseContext();
+    }
+  }
 
 
 

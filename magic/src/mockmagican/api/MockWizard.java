@@ -20,8 +20,7 @@ public class MockWizard {
    * test method.
    */
   public static void entersTheStage() {
-
-
+    MockWizardUtil.createNewContext();
   }
 
   /**
