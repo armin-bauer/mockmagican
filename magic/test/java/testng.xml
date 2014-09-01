@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<suite name="mockmagican - tests" verbose="2">
+
+  <test name="DSL and Integration Tests with JAVA">
+    <classes>
+      <class name="mockmagican.IntegrationTest_MockInterfaces" />
+    </classes>
+  </test>
+</suite>

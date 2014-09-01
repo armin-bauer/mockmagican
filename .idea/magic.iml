@@ -4,10 +4,13 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/magic">
       <sourceFolder url="file://$MODULE_DIR$/magic/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/magic/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/magic/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/magic/test/groovy" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="TEST" name="fest-assert-1.4-javadoc" level="project" />
+    <orderEntry type="library" name="testng-6.5.1" level="project" />
   </component>
 </module>
 
