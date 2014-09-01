@@ -6,7 +6,11 @@ package mockmagican.api;
  *
  * @author armin
  */
-public class MagicDisruptsTheSpaceTimeContinuumException extends Exception {
+public class MagicDisruptsTheSpaceTimeContinuumException extends RuntimeException {
+
+  public MagicDisruptsTheSpaceTimeContinuumException(String message) {
+    super(message);
+  }
 
 
 }

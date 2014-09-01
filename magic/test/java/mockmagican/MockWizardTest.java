@@ -1,5 +1,6 @@
 package mockmagican;
 
+import mockmagican.api.MagicDisruptsTheSpaceTimeContinuumException;
 import mockmagican.api.MockWizard;
 import org.testng.annotations.Test;
 
@@ -33,6 +34,16 @@ public class MockWizardTest {
     } finally {
       MockWizardUtil.releaseContext();
     }
+  }
+
+  @Test(expectedExceptions = MagicDisruptsTheSpaceTimeContinuumException.class, expectedExceptionsMessageRegExp = "Oops... The magican tried to change the fate of an object that was not one of his creations and thus the spacetime continuum broke.")
+  public void foretells_throwsExceptionWhenParameterObjectIsNotAMockObject() throws Exception {
+    // fixture: not needed
+
+    // execution: call foretells with a non mock object
+    MockWizard.foretells("test");
+
+    // assertion: by expected exception
   }
 
 

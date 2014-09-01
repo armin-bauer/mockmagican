@@ -51,7 +51,10 @@ public class MockWizard {
    * begin a foretelling by the mock wizard
    * @return a foretelling dsl.
    */
-  public static ForetellingSentenceBegins foretells(final Object mockObject) {
-    return null;
+  public static ForetellingSentenceBegins foretells(final Object mockObject) throws MagicDisruptsTheSpaceTimeContinuumException {
+    if (! (mockObject instanceof MockObject)) {
+      throw new MagicDisruptsTheSpaceTimeContinuumException("Oops... The magican tried to change the fate of an object that was not one of his creations and thus the spacetime continuum broke.");
+    }
+    return new ForetellingDSL((MockObject) mockObject);
   }
 }

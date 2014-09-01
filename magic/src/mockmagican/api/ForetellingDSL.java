@@ -1,13 +1,19 @@
 package mockmagican.api;
 
 import mockmagican.GlassBall;
+import mockmagican.MockObject;
 import mockmagican.MockWizardUtil;
 
 /**
 * @author armin
 */
 class ForetellingDSL implements ForetellingSentenceBegins, ForetellingDSLCalledHowOften, ForetellingDSLReturnValue {
+  private final MockObject mockObject;
   private GlassBall call;
+
+  ForetellingDSL(final MockObject mockObject) {
+    this.mockObject = mockObject;
+  }
 
   @Override
   public ForetellingDSLCalledHowOften that(Runnable r) {
