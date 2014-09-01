@@ -1,8 +1,10 @@
 package mockmagican.interfaces;
 
 import mockmagican.GlassBall;
+import mockmagican.MockObject;
 import mockmagican.MockWizardThreadContext;
 import mockmagican.MockWizardUtil;
+import mockmagican.api.MagicDisruptsTheSpaceTimeContinuumException;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -33,11 +35,12 @@ public class MockWizardInterfaceInvocationHandler implements InvocationHandler {
       if (call != null) {
         call.increaseNumActualCalls();
         return call.getReturnValue();
+      } else {
+        throw new MagicDisruptsTheSpaceTimeContinuumException(
+          "Oh no! The fragile conjuring magic was not prepared for a call to " + new GlassBall((MockObject) proxy, method, args).describeCall() +
+          " on a mocked object. It disrupted the spacetime continuum.");
       }
     }
-
-    // no further operations implemented.
-    return null;
   }
 
 

@@ -44,6 +44,22 @@ public class IntegrationTest_MockInterfaces {
     }
   }
 
+  @Test (expectedExceptions = MagicDisruptsTheSpaceTimeContinuumException.class, expectedExceptionsMessageRegExp = "Oh no! The fragile conjuring magic was not prepared for a call to someFunction with parameters \\[1, 2, 3\\] on a mocked object. It disrupted the spacetime continuum.")
+  public void interface_throwsException_whenAnUnexpectedCallToAMockObjectHasBeenMade() throws Exception {
+    try {
+      // fixture: mock something.
+      MockWizard.entersTheStage();
+      final MyInterface implementation = MockWizard.conjuresUpA(MyInterface.class);
+
+      // execution: call some method.
+      implementation.someFunction(1, 2, 3);
+
+      // assertion: by expected exception
+    } finally {
+      MockWizard.vanishes();
+    }
+  }
+
 
 
 

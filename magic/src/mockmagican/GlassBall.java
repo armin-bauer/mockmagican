@@ -56,4 +56,29 @@ public class GlassBall {
   public boolean isDone() {
     return numExpectedCalls == numActualCalls;
   }
+
+  public String describeCall() {
+    final StringBuilder sb = new StringBuilder();
+
+    sb.append(getCalledMethod().getName()).append(" with parameters [");
+    boolean first = true;
+    for (final Object o : getParameters()) {
+
+      // comma separated list.
+      if (!first) {
+        sb.append(", ");
+      }
+      first = false;
+
+      if (o instanceof String) {
+        sb.append("\"").append(o).append("\"");
+      } else {
+        sb.append(String.valueOf(o));
+      }
+    }
+    sb.append("]");
+
+    return sb.toString();
+  }
+
 }
