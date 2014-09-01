@@ -22,6 +22,9 @@ public class ValueHolder<T> {
   }
 
   public synchronized T get() {
+    if (isEmpty()) {
+      throw new ValueHolderException("Nothing to get in the ValueHolder.");
+    }
     return this.value;
   }
 
@@ -35,7 +38,7 @@ public class ValueHolder<T> {
 
   public T getAndReset() {
     try {
-      return value;
+      return get();
     } finally {
       reset();
     }

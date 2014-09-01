@@ -11,6 +11,7 @@
     <classes>
       <class name="mockmagican.MockWizardTest" />
       <class name="mockmagican.interfaces.MockWizardInterfaceInvocationHandlerTest" />
+      <class name="mockmagican.util.ValueHolderTest" />
     </classes>
   </test>
 </suite>
