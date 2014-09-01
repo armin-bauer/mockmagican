@@ -12,20 +12,21 @@ public class GlassBall {
   private Method calledMethod;
   private Object[] callParams;
   private int numExpectedCalls = 0;
-  private Object returns;
+  private int numActualCalls = 0;
+  private Object returnValue;
 
-  public GlassBall(final MockObject proxy, final Method method, final Object[] args) {
+  public GlassBall(final MockObject proxy, final Method method, final Object... args) {
     this.mockObject = proxy;
     this.calledMethod = method;
     this.callParams = args;
   }
 
-  public void expectCall() {
-    this.numExpectedCalls++;
+  public Object getReturnValue() {
+    return returnValue;
   }
 
   public void setReturnValue(final Object result) {
-    this.returns = result;
+    this.returnValue = result;
   }
 
   public void setMockObject(final MockObject mockObject) {
@@ -42,5 +43,17 @@ public class GlassBall {
 
   public Method getCalledMethod() {
     return calledMethod;
+  }
+
+  public void expectCall() {
+    this.numExpectedCalls++;
+  }
+
+  public int getNumActualCalls() {
+    return numActualCalls;
+  }
+
+  public void increaseNumActualCalls() {
+    numActualCalls++;
   }
 }

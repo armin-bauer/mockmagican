@@ -1,5 +1,6 @@
 package mockmagican.interfaces;
 
+import mockmagican.GlassBall;
 import mockmagican.MockWizardThreadContext;
 import mockmagican.MockWizardUtil;
 
@@ -27,6 +28,12 @@ public class MockWizardInterfaceInvocationHandler implements InvocationHandler {
     if (MockWizardUtil.current().isRecordMode()) {
       MockWizardUtil.recordMockCall(method, args, proxy);
       return null;
+    } else {
+      final GlassBall call = MockWizardUtil.current().getMatchingForetoldCall(proxy, method, args);
+      if (call != null) {
+        call.increaseNumActualCalls();
+        return call.getReturnValue();
+      }
     }
 
     // no further operations implemented.

@@ -1,4 +1,4 @@
-package mockmagican.interfaces;
+package mockmagican;
 
 /**
  * @author armin

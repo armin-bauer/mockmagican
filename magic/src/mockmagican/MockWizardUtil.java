@@ -66,6 +66,6 @@ public class MockWizardUtil {
    * @param proxy the object the call was made on
    */
   public static void recordMockCall(final Method method, final Object[] args, final Object proxy) {
-    current().addRecordedCall(new GlassBall((MockObject) proxy, method, args));
+    current().recordMockCall(new GlassBall((MockObject) proxy, method, args));
   }
 }
