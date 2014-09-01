@@ -22,6 +22,7 @@ class ForetellingDSL implements ForetellingSentenceBegins, ForetellingDSLCalledH
 
       r.run();
       this.call = MockWizardUtil.lastRecordedCall();
+      MockWizardUtil.current().addExpectedCall(call);
 
       assert call.getMockObject() == mockObject;
 
