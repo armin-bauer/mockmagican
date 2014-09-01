@@ -8,9 +8,9 @@ import java.lang.reflect.Method;
  * @author armin
  */
 public class GlassBall {
-  private MockObject mockObject;
-  private Method calledMethod;
-  private Object[] callParams;
+  private final MockObject mockObject;
+  private final Method calledMethod;
+  private final Object[] callParams;
   private int numExpectedCalls = 0;
   private int numActualCalls = 0;
   private Object returnValue;
@@ -27,10 +27,6 @@ public class GlassBall {
 
   public void setReturnValue(final Object result) {
     this.returnValue = result;
-  }
-
-  public void setMockObject(final MockObject mockObject) {
-    this.mockObject = mockObject;
   }
 
   public MockObject getMockObject() {
@@ -55,5 +51,9 @@ public class GlassBall {
 
   public void increaseNumActualCalls() {
     numActualCalls++;
+  }
+
+  public boolean isDone() {
+    return numExpectedCalls == numActualCalls;
   }
 }

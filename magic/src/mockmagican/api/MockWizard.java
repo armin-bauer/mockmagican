@@ -14,6 +14,8 @@ import java.lang.reflect.Proxy;
  */
 public class MockWizard {
 
+  public static final String BASE_ERROR_MESSAGE = "Oh no! The spacetime continuum was disrupted because the foretellings did not come true.";
+
   /**
    * this method initializes the mocking framework. It can be called before a test is executed.
    * If you write an integration adapter for a test framework, you should call it before executing the
@@ -28,7 +30,13 @@ public class MockWizard {
    * to a mock object was not made.
    */
   public static void vanishes() throws MagicDisruptsTheSpaceTimeContinuumException {
+    final MockWizardThreadContext context = MockWizardUtil.current();
 
+    // MockWizardUtil.releaseContext();
+
+    if (context.hasUnfulfilledForetellings()) {
+      throw new MagicDisruptsTheSpaceTimeContinuumException(BASE_ERROR_MESSAGE + context.getUnfulfilledForetellingsString());
+    }
   }
 
   /**

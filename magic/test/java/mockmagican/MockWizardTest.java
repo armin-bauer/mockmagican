@@ -46,10 +46,29 @@ public class MockWizardTest {
     // assertion: by expected exception
   }
 
+  @Test(expectedExceptions = MagicDisruptsTheSpaceTimeContinuumException.class, expectedExceptionsMessageRegExp = "Oh no! The spacetime continuum was disrupted because the foretellings did not come true.\nMissing call to test with parameters \\[\"123\"\\]")
+  public void vanished_throwsException_whenThereAreUnfulfilledGlassballs() throws Exception {
+    // fixture: prepare a context with unfulfilled glassballs
+    MockWizard.entersTheStage();
+
+    final GlassBall glassBall = new GlassBall(new MyMockObject(), MyMockObject.class.getMethod("test", String.class), "123");
+    glassBall.expectCall();
+    MockWizardUtil.current().addExpectedCall(glassBall);
+
+    // execution: call vanishes.
+    MockWizard.vanishes();
+
+    // assertion: by expected Exception
+  }
+
 
 
   private static interface TestInterface {
 
+  }
+
+  public static class MyMockObject implements MockObject {
+    public String test(String s) { return s; }
   }
 
 }

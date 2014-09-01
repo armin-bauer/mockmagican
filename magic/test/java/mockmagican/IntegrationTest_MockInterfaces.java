@@ -28,7 +28,7 @@ public class IntegrationTest_MockInterfaces {
     }
   }
 
-  @Test(expectedExceptions = MagicDisruptsTheSpaceTimeContinuumException.class, expectedExceptionsMessageRegExp = "Oh no! The spacetime continuum was disrupted because the foretellings did not come true. Missing a call to someFunction(\"hello\", \"world\", 1.0f) ...")
+  @Test(expectedExceptions = MagicDisruptsTheSpaceTimeContinuumException.class, expectedExceptionsMessageRegExp = "Oh no! The spacetime continuum was disrupted because the foretellings did not come true.\nMissing call to someFunction with parameters \\[\"hello\", \"world\", 1.0\\]")
   public void interface_throwsExceptionWhenVanihsing_whenForetoldMethodInvocationsArentExecuted() throws Exception {
     try {
       MockWizard.entersTheStage();

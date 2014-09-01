@@ -95,4 +95,42 @@ public class MockWizardThreadContext {
   public void addExpectedCall(final GlassBall call) {
     this.expectedCallsToMocks.add(call);
   }
+
+  public boolean hasUnfulfilledForetellings() {
+    for (final GlassBall g : expectedCallsToMocks) {
+      if (!g.isDone()) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  public String getUnfulfilledForetellingsString() {
+    final StringBuilder sb = new StringBuilder();
+
+    for (final GlassBall g : expectedCallsToMocks) {
+      if (!g.isDone()) {
+        sb.append("\nMissing call to ").append(g.getCalledMethod().getName()).append(" with parameters [");
+        boolean first = true;
+        for (final Object o : g.getParameters()) {
+
+          // comma separated list.
+          if (!first) {
+            sb.append(", ");
+          }
+          first = false;
+
+          if (o instanceof String) {
+            sb.append("\"").append(o).append("\"");
+          } else {
+            sb.append(String.valueOf(o));
+          }
+        }
+        sb.append("]");
+      }
+    }
+
+    return sb.toString();
+  }
 }
