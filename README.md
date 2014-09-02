@@ -37,25 +37,25 @@ Syntax description
 
 Here's an example on how to mock using this framework. This is a kind of rawish api description and i'll just write some explanations after each line.
 
-  MockWizard.entersTheStage();
+  * MockWizard.entersTheStage();
 
 The wizard comes on the stage. I guess some applause would be apropriate since i mean a great performer comes on stage to peform for you.
 
 Oh no. An interface, an empty facade, just a shadow of a real object. But we have a need for one of those. So ... basically... let's conjure up one of them using plain magic (and maybe a little bit of java proxy api)
 
-  final MyInterface implementation = MockWizard.conjuresUpA(MyInterface.class);
+  * final MyInterface implementation = MockWizard.conjuresUpA(MyInterface.class);
 
 And yes, it's that easy.
 
 But what good is one of those magic objects we have if we can't do anything with it? Basically the wizard who controlls the strings of fate of all it's creations can foretell what should happen to it.
 
-  MockWizard.foretells().that( () -> implementation.someFunction("hello", "world", 1.0f) ).willBeCalled().andThenReturns("yay it was called");
+  * MockWizard.foretells().that( () -> implementation.someFunction("hello", "world", 1.0f) ).willBeCalled().andThenReturns("yay it was called");
 
 So the wizard foretold that someFunction was called on the mock object with the given parameters. He foretells that it expects one call to that method and he tells his creation to return a result string then.
 
 Since the foretellings have all been made now the code we want to test can be executed. And then ... it's finally time for the wizard to leave the stage.
 
-  MockWizard.vanishes();
+  * MockWizard.vanishes();
 
 When this happens and the foretelling was not fulfilled, the space-time-continuum will get a disruption and the primitive ways of your jvm will throw an Exception.
 
