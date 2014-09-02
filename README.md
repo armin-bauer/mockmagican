@@ -37,7 +37,7 @@ Syntax description
 
 Here's an example on how to mock using this framework. This is a kind of rawish api description and i'll just write some explanations after each line.
 
-	MockWizard.entersTheStage();
+  MockWizard.entersTheStage();
 
 The wizard comes on the stage. I guess some applause would be apropriate since i mean a great performer comes on stage to peform for you.
 
