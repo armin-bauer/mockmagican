@@ -11,6 +11,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="fest-assert-1.4-javadoc" level="project" />
     <orderEntry type="library" name="testng-6.5.1" level="project" />
+    <orderEntry type="library" name="javassist" level="project" />
   </component>
 </module>
 

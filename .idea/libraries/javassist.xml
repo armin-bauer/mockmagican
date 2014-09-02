@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="javassist">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/javassist/javassist.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist/javassist-rel_3_18_2_ga_build.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/javassist/javassist-rel_3_18_2_ga_build.zip!/javassist-rel_3_18_2_ga_build/src/main" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist/javassist-rel_3_18_2_ga_build.zip!/javassist-rel_3_18_2_ga_build/src/test" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist/javassist-rel_3_18_2_ga_build.zip!/javassist-rel_3_18_2_ga_build" />
+    </SOURCES>
+  </library>
+</component>
